@@ -633,6 +633,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4780083634823512, guid: 194f8fbf67729fd40936b3465af2cc47, type: 3}
   m_PrefabInstance: {fileID: 330873745}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1213686068 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95242923974199034, guid: 194f8fbf67729fd40936b3465af2cc47, type: 3}
+  m_PrefabInstance: {fileID: 330873745}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1293862147 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4194976719081442, guid: 194f8fbf67729fd40936b3465af2cc47, type: 3}
@@ -776,6 +781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47734cfe709cbd442a6987bba00a2d93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitAnimator: {fileID: 1213686068}
 --- !u!4 &1743553213
 Transform:
   m_ObjectHideFlags: 0
