@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -7,6 +8,11 @@ public class Unit : MonoBehaviour
 
     [SerializeField] private Animator unitAnimator;
     private Vector3 _targetPosition;
+
+    private void Awake()
+    {
+        _targetPosition = transform.position;
+    }
 
     private void Update()
     {
@@ -25,13 +31,10 @@ public class Unit : MonoBehaviour
         {
             unitAnimator.SetBool(IsWalking, false);
         }
-        if (Input.GetMouseButtonDown(0))
-        {
-            Move(MouseWorld.GetMouseWorldPosition());
-        }
+        
     }
         
-    private void Move(Vector3 targetPosition)
+    public void Move(Vector3 targetPosition)
     {
         _targetPosition = targetPosition;
     }
