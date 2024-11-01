@@ -10,10 +10,13 @@ public class UnitActionSystem : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
+        if (Instance != null)
         {
-            Instance = this;
+            Debug.LogError("There is more than one instance of UnitActionSystem attached!");
+            Destroy(gameObject);
+            return;
         }
+        Instance = this;
     }
 
     private void Update()
