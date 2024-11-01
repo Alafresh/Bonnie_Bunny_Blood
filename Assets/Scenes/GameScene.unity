@@ -1030,6 +1030,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1657375978}
+  - component: {fileID: 1657375979}
   m_Layer: 0
   m_Name: CameraController
   m_TagString: Untagged
@@ -1052,6 +1053,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1657375979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657375977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd933854fe529fd44adedef193b8f157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1743553212 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 144965059076140515, guid: d629cf3aea7e6224f9ecf22f0a757300, type: 3}
