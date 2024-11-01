@@ -3,16 +3,25 @@ using UnityEngine;
 
 public class UnitActionSystem : MonoBehaviour
 {
+    public static UnitActionSystem Instance {get; private set;}
+    public event EventHandler OnSelectedUnitChanged;
     [SerializeField] private Unit selectedUnit;
     [SerializeField] private LayerMask unitLayerMask;
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
+
     private void Update()
     {
-        // return if it got unit and stop update from running
-        if (TryHandleUnitSelection()) return;
-        
         if (Input.GetMouseButtonDown(0))
         {
+            // return if it got unit and stop update from running
+            if (TryHandleUnitSelection()) return;
             selectedUnit.Move(MouseWorld.GetMouseWorldPosition());
         }
     }
@@ -25,10 +34,21 @@ public class UnitActionSystem : MonoBehaviour
             // return false or true depends of component
             if (hit.transform.TryGetComponent<Unit>(out Unit unit))
             {
-                selectedUnit = unit;
+                SetSelectedUnit(unit);
                 return true;
             }
         }
         return false;
+    }
+
+    private void SetSelectedUnit(Unit unit)
+    {
+        selectedUnit = unit;
+        OnSelectedUnitChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    public Unit GetSelectedUnit()
+    {
+        return selectedUnit;
     }
 }
