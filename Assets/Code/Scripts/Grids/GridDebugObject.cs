@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -9,6 +10,11 @@ public class GridDebugObject : MonoBehaviour
     public void SetGridObject(GridObject gridObject)
     {
         _gridObject = gridObject;
+        textMeshPro.text = _gridObject.ToString();
+    }
+
+    private void Update()
+    {
         textMeshPro.text = _gridObject.ToString();
     }
 }
