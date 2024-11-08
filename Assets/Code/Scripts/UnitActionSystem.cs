@@ -25,7 +25,7 @@ public class UnitActionSystem : MonoBehaviour
         {
             // return if it got unit and stop update from running
             if (TryHandleUnitSelection()) return;
-            selectedUnit.Move(MouseWorld.GetMouseWorldPosition());
+            selectedUnit.GetMoveAction().Move(MouseWorld.GetMouseWorldPosition());
         }
     }
 
@@ -35,7 +35,7 @@ public class UnitActionSystem : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, float.MaxValue, unitLayerMask))
         {
             // return false or true depends of component
-            if (hit.transform.TryGetComponent<Unit>(out Unit unit))
+            if (hit.transform.TryGetComponent(out Unit unit))
             {
                 SetSelectedUnit(unit);
                 return true;
