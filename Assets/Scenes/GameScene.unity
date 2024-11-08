@@ -638,7 +638,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrackerSettings:
     BindingMode: 1
-    PositionDamping: {x: 1, y: 1, z: 1}
+    PositionDamping: {x: 0, y: 0, z: 0}
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
@@ -666,7 +666,7 @@ MonoBehaviour:
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
   TargetOffset: {x: 0, y: 0, z: 0}
-  Damping: {x: 0.5, y: 0.5}
+  Damping: {x: 0, y: 0}
   Lookahead:
     Enabled: 0
     Time: 0
@@ -1065,6 +1065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd933854fe529fd44adedef193b8f157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraFollow: {fileID: 490723598}
 --- !u!114 &1743553212 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 144965059076140515, guid: d629cf3aea7e6224f9ecf22f0a757300, type: 3}
