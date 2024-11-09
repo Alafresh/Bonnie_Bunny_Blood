@@ -1,15 +1,19 @@
-using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveAction : MonoBehaviour
 {
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
     private Vector3 _targetPosition;
+    private Unit _unit;
+    
     [SerializeField] private Animator unitAnimator;
+    [SerializeField] private int maxMoveDistance = 4;
     
     private void Awake()
     {
         _targetPosition = transform.position;
+        _unit = GetComponent<Unit>();
     }
 
     private void Update()
@@ -31,8 +35,48 @@ public class MoveAction : MonoBehaviour
         }
     }
 
-    public void Move(Vector3 targetPosition)
+    public void Move(GridPosition gridPosition)
     {
-        _targetPosition = targetPosition;
+        _targetPosition = LevelGrid.Instance.GetGridPosition(gridPosition);
+    }
+
+    public bool IsValidActionGridPosition(GridPosition gridPosition)
+    {
+        List<GridPosition> validGridPositionList = GetValidDestinations();
+        return validGridPositionList.Contains(gridPosition);
+    }
+
+    public List<GridPosition>GetValidDestinations()
+    {
+        List<GridPosition> validDestinations = new List<GridPosition>();
+
+        GridPosition unitGridPosition = _unit.GetGridPosition();
+        for (int x = -maxMoveDistance; x <= maxMoveDistance; x++)
+        {
+            for (int z = -maxMoveDistance; z <= maxMoveDistance; z++)
+            {
+                GridPosition offsetGrdPosition = new GridPosition(x, z);
+                GridPosition testGrdPosition = unitGridPosition + offsetGrdPosition;
+                if (!LevelGrid.Instance.IsValidGridPosition(testGrdPosition))
+                {
+                    continue;
+                }
+
+                if (unitGridPosition == testGrdPosition)
+                {
+                    // Same Grid Position where the unit is already at
+                    continue;
+                }
+
+                if (LevelGrid.Instance.HasAnyUnitOnGridPosition(testGrdPosition))
+                {
+                    // Grid Position already occupied with another unit
+                    continue;
+                }
+                validDestinations.Add(testGrdPosition);
+            }
+        }
+
+        return validDestinations;
     }
 }

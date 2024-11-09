@@ -43,4 +43,14 @@ public struct GridPosition : IEquatable<GridPosition>
     {
         return HashCode.Combine(X, Z);
     }
+
+    public static GridPosition operator +(GridPosition a, GridPosition b)
+    {
+        return new GridPosition(a.X + b.X, a.Z + b.Z);
+    }
+    
+    public static GridPosition operator -(GridPosition a, GridPosition b)
+    {
+        return new GridPosition(a.X - b.X, a.Z - b.Z);
+    }
 }
