@@ -1,9 +1,10 @@
 using UnityEngine;
+using System;
 
 public class SpinAction : BaseAction
 {
     private float _totalSpinAmount;
-    public delegate void SpinCompleteDelegate();
+    
 
     private void Update()
     {
@@ -17,12 +18,19 @@ public class SpinAction : BaseAction
         if (_totalSpinAmount >= 360)
         {
             isActive = false;
+            onActionComplete();
         }
     }
     
-    public void Spin(SpinCompleteDelegate onComplete)
+    public void Spin(Action onComplete)
     {
+        onActionComplete = onComplete;
         isActive = true;
         _totalSpinAmount = 0f;
+    }
+
+    public override string GetActionName()
+    {
+        return "Spin";
     }
 }

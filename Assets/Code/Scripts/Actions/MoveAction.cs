@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class MoveAction : BaseAction
 {
@@ -13,6 +14,11 @@ public class MoveAction : BaseAction
     {
         base.Awake();
         _targetPosition = transform.position;
+    }
+
+    public override string GetActionName()
+    {
+        return "Move";
     }
 
     private void Update()
@@ -31,13 +37,15 @@ public class MoveAction : BaseAction
         {
             unitAnimator.SetBool(IsWalking, false);
             isActive = false;
+            onActionComplete();
         }
         float rotateSpeed = 10f;
         transform.forward = Vector3.Lerp(transform.forward, moveDirection, Time.deltaTime * rotateSpeed);
     }
 
-    public void Move(GridPosition gridPosition)
+    public void Move(GridPosition gridPosition, Action onComplete)
     {
+        onActionComplete = onComplete;
         _targetPosition = LevelGrid.Instance.GetWorldGridPosition(gridPosition);
         isActive = true;
     }
