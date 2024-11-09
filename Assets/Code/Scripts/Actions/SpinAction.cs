@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Collections.Generic;
 
 public class SpinAction : BaseAction
 {
@@ -22,15 +23,23 @@ public class SpinAction : BaseAction
         }
     }
     
-    public void Spin(Action onComplete)
+    public override void TakeAction(GridPosition gridPosition, Action onComplete)
     {
         onActionComplete = onComplete;
         isActive = true;
         _totalSpinAmount = 0f;
     }
-
     public override string GetActionName()
     {
         return "Spin";
+    }
+
+    public override List<GridPosition> GetValidDestinations()
+    {
+        GridPosition unitGridPosition = unit.GetGridPosition();
+        return new List<GridPosition>
+        {
+            unitGridPosition
+        };
     }
 }
