@@ -3,7 +3,7 @@ using UnityEngine;
 public class SpinAction : BaseAction
 {
     private float _totalSpinAmount;
-
+    public delegate void SpinCompleteDelegate();
 
     private void Update()
     {
@@ -20,7 +20,7 @@ public class SpinAction : BaseAction
         }
     }
     
-    public void Spin()
+    public void Spin(SpinCompleteDelegate onComplete)
     {
         isActive = true;
         _totalSpinAmount = 0f;
