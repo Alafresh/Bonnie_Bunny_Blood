@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 public class UnitActionSystemUI : MonoBehaviour
 {
     [SerializeField] private Transform actionButtonPrefab;
     [SerializeField] private Transform actionButtonContainerTransform;
+    [SerializeField] private TextMeshProUGUI actionsPointsText;
 
     private List<ActionButtonUI> _actionButtonUIList;
 
@@ -18,6 +20,11 @@ public class UnitActionSystemUI : MonoBehaviour
     {
         UnitActionSystem.Instance.OnSelectedUnitChanged += UnitActionSystem_OnSelectedUnitChanged;
         UnitActionSystem.Instance.OnSelectedActionChanged += UnitActionSystem_OnSelectedActionChanged;
+        UnitActionSystem.Instance.OnActionStarted += UnitActionSystem_OnActionStarted;
+        TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
+        Unit.OnAnyActionsPointsChanged += Unit_OnAnyActionsPointsChanged;
+        
+        UpdateActionPointsText();
         CreateUnitActionButtons();
         UpdateSelectedVisual();
     }
@@ -41,15 +48,29 @@ public class UnitActionSystemUI : MonoBehaviour
         }
     }
 
+    private void UnitActionSystem_OnActionStarted(object sender, EventArgs e)
+    {
+        UpdateActionPointsText();
+    }
     private void UnitActionSystem_OnSelectedUnitChanged(object sender, EventArgs e)
     {
         CreateUnitActionButtons();
         UpdateSelectedVisual();
+        UpdateActionPointsText();
     }
 
     private void UnitActionSystem_OnSelectedActionChanged(object sender, EventArgs e)
     {
         UpdateSelectedVisual();
+    }
+
+    private void TurnSystem_OnTurnChanged(object sender, EventArgs e)
+    {
+        UpdateActionPointsText();
+    }
+    private void Unit_OnAnyActionsPointsChanged(object sender, EventArgs e)
+    {
+        UpdateActionPointsText();
     }
     private void UpdateSelectedVisual()
     {
@@ -58,4 +79,12 @@ public class UnitActionSystemUI : MonoBehaviour
             actionButtonUI.UpdateSelectedVisual();
         }
     }
+
+    private void UpdateActionPointsText()
+    {
+        Unit selectedUnit = UnitActionSystem.Instance.GetSelectedUnit();
+        actionsPointsText.text = $"Action Points: {selectedUnit.GetActionsPoints()}";
+    }
+
+    
 }
