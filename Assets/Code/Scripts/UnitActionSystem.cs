@@ -37,6 +37,9 @@ public class UnitActionSystem : MonoBehaviour
         // actually executes an action
         if (_isBusy) return;
         
+        // return if its turns enemys
+        if (!TurnSystem.Instance.IsPlayerTurn()) return;
+        
         // mouse over button
         if (EventSystem.current.IsPointerOverGameObject()) return;
         
@@ -86,6 +89,11 @@ public class UnitActionSystem : MonoBehaviour
                 if (hit.transform.TryGetComponent(out Unit unit))
                 {
                     if (unit == selectedUnit)
+                    {
+                        return false;
+                    }
+
+                    if (unit.IsEnemy())
                     {
                         return false;
                     }
