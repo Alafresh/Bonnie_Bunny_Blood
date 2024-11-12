@@ -10,8 +10,11 @@ public class ShootAction : BaseAction
         Shooting,
         CoolOff,
     }
-    private State state;
+    private State _state;
     private int _maxShootDistance = 7;
+    private float _stateTimer;
+    private Unit _targetUnit;
+    private bool _canShootBullet;
     private void Update()
     {
         if (!isActive)
@@ -19,10 +22,54 @@ public class ShootAction : BaseAction
             return;
         }
 
-        switch (state)
+        switch (_state)
         {
-            
+            case State.Aiming:
+                Vector3 aimDirection = (_targetUnit.GetWorldPosition() - unit.GetWorldPosition()).normalized;
+                float rotateSpeed = 10f;
+                transform.forward = Vector3.Lerp(transform.forward, aimDirection, Time.deltaTime * rotateSpeed);
+                break;
+            case State.Shooting:
+                if (_canShootBullet)
+                {
+                    Shoot();
+                    _canShootBullet = false;
+                }
+                break;
+            case State.CoolOff:
+                break;
         }
+        
+        _stateTimer -= Time.deltaTime;
+        if (_stateTimer <= 0f)
+        {
+            NextState();
+        }
+    }
+
+    private void NextState()
+    {
+        switch (_state)
+        {
+            case State.Aiming:
+                _state = State.Shooting;
+                float shootingStateTime = 0.1f;
+                _stateTimer = shootingStateTime;
+                break;
+            case State.Shooting:
+                _state = State.CoolOff;
+                float coolOffStateTime = 0.5f;
+                _stateTimer = coolOffStateTime;
+                break;
+            case State.CoolOff:
+                ActionComplete();
+                break;
+        }
+    }
+
+    private void Shoot()
+    {
+        _targetUnit.Damage();
     }
     public override string GetActionName()
     {
@@ -31,9 +78,14 @@ public class ShootAction : BaseAction
 
     public override void TakeAction(GridPosition gridPosition, Action onComplete)
     {
-        onActionComplete = onComplete;
-        isActive = true;
+        ActionStart(onComplete);
         
+        _targetUnit = LevelGrid.Instance.GetUnitAtGridPosition(gridPosition);
+        
+        _state = State.Aiming;
+        float aimingStateTime = 1f;
+        _stateTimer = aimingStateTime;
+        _canShootBullet = true;
     }
 
     public override List<GridPosition> GetValidDestinations()
