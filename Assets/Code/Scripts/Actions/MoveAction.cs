@@ -4,12 +4,13 @@ using System;
 
 public class MoveAction : BaseAction
 {
-    private static readonly int IsWalking = Animator.StringToHash("IsWalking");
+    
     private Vector3 _targetPosition;
     
-    [SerializeField] private Animator unitAnimator;
     [SerializeField] private int maxMoveDistance = 4;
-    
+
+    public event EventHandler OnStartMoving;
+    public event EventHandler OnStopMoving;
     protected override void Awake()
     {
         base.Awake();
@@ -31,11 +32,10 @@ public class MoveAction : BaseAction
             float moveSpeed = 4f;
             transform.position += moveDirection * (moveSpeed * Time.deltaTime);
             
-            unitAnimator.SetBool(IsWalking, true);
         }
         else
         {
-            unitAnimator.SetBool(IsWalking, false);
+            OnStopMoving?.Invoke(this, EventArgs.Empty);
             ActionComplete();
         }
         float rotateSpeed = 10f;
@@ -46,6 +46,7 @@ public class MoveAction : BaseAction
     {
         ActionStart(onComplete);
         _targetPosition = LevelGrid.Instance.GetWorldGridPosition(gridPosition);
+        OnStartMoving?.Invoke(this, EventArgs.Empty);
     }
     
     public override List<GridPosition>GetValidDestinations()
