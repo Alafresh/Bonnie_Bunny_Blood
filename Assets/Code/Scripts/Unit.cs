@@ -7,6 +7,7 @@ public class Unit : MonoBehaviour
     [SerializeField] private bool isEnemy;
     private const int ACTION_POINTS_MAX = 2;
     
+    private HealthSystem _healthSystem;
     private GridPosition _gridPosition;
     private MoveAction _moveAction;
     private SpinAction _spinAction;
@@ -17,6 +18,7 @@ public class Unit : MonoBehaviour
 
     private void Awake()
     {
+        _healthSystem = GetComponent<HealthSystem>();
         _moveAction = GetComponent<MoveAction>();
         _spinAction = GetComponent<SpinAction>();
         _baseActionArray = GetComponents<BaseAction>();
@@ -27,6 +29,7 @@ public class Unit : MonoBehaviour
         _gridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
         LevelGrid.Instance.AddUnitAtGridPosition(_gridPosition, this);
         TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
+        _healthSystem.OnDead += HealthSystem_OnDead;
     }
 
     private void Update()
@@ -113,8 +116,14 @@ public class Unit : MonoBehaviour
         return isEnemy;
     }
 
-    public void Damage()
+    public void Damage(int damageAmount)
     {
-        Debug.Log(transform + " damage");
+        _healthSystem.Damage(damageAmount);
+    }
+
+    private void HealthSystem_OnDead(object sender, EventArgs e)
+    {
+        LevelGrid.Instance.RemoveUnitAtGridPosition(_gridPosition, this);
+        Destroy(gameObject);
     }
 }

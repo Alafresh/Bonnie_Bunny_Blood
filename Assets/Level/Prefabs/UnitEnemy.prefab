@@ -3022,6 +3022,7 @@ GameObject:
   - component: {fileID: 3840446089790248374}
   - component: {fileID: 3027561768774220832}
   - component: {fileID: 487666308053675367}
+  - component: {fileID: 6546906012288912622}
   - component: {fileID: 7926979235004993089}
   m_Layer: 7
   m_Name: UnitEnemy
@@ -3112,6 +3113,18 @@ MonoBehaviour:
   animator: {fileID: 7985147113587861886}
   bulletProjectilePrefab: {fileID: 8924360254660879041, guid: 870469e455bb6a74db93f04807892cd0, type: 3}
   shootPointTransform: {fileID: 4644677473169788987}
+--- !u!114 &6546906012288912622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9051540016042852146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a3a1ef358926294cb65b2117ed06b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &7926979235004993089
 BoxCollider:
   m_ObjectHideFlags: 0
