@@ -686,6 +686,8 @@ GameObject:
   - component: {fileID: 3019535185797011136}
   - component: {fileID: 6311706111091277913}
   - component: {fileID: 8316523823905635745}
+  - component: {fileID: 4793753967485431254}
+  - component: {fileID: 8782484424193639613}
   m_Layer: 7
   m_Name: UnitWorldUI
   m_TagString: Untagged
@@ -776,6 +778,33 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4793753967485431254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2732139309511589851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8af9fa85287c0204b920cd1ae2fd71d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionPointsText: {fileID: 1618415455933664655}
+  unit: {fileID: 2103424827099283207}
+--- !u!114 &8782484424193639613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2732139309511589851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0fe4248312daf545805e3f7f7cd77e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invert: 1
 --- !u!1 &2762706910178875381
 GameObject:
   m_ObjectHideFlags: 0
