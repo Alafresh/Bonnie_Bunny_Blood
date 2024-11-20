@@ -3,28 +3,28 @@ using UnityEngine.UIElements;
 
 public struct GridPosition : IEquatable<GridPosition>
 {
-    public int X;
-    public int Z;
+    public int x;
+    public int z;
 
     public GridPosition(int x, int z)
     {
-        X = x;
-        Z = z;
+        this.x = x;
+        this.z = z;
     }
 
     public override string ToString()
     {
-        return $"x: {X}; z: {Z}";
+        return $"x: {x}; z: {z}";
     }
 
     public static bool operator == (GridPosition left, GridPosition right)
     {
-        return left.X == right.X && left.Z == right.Z;
+        return left.x == right.x && left.z == right.z;
     }
 
     public static bool operator !=(GridPosition left, GridPosition right)
     {
-        return left.X != right.X || left.Z != right.Z;
+        return left.x != right.x || left.z != right.z;
     }
 
     public bool Equals(GridPosition other)
@@ -35,22 +35,22 @@ public struct GridPosition : IEquatable<GridPosition>
     public override bool Equals(object obj)
     {
         return obj is GridPosition position &&
-               X == position.X &&
-               Z == position.Z;
+               x == position.x &&
+               z == position.z;
     }
 
     public override int GetHashCode()
     {
-        return HashCode.Combine(X, Z);
+        return HashCode.Combine(x, z);
     }
 
     public static GridPosition operator +(GridPosition a, GridPosition b)
     {
-        return new GridPosition(a.X + b.X, a.Z + b.Z);
+        return new GridPosition(a.x + b.x, a.z + b.z);
     }
     
     public static GridPosition operator -(GridPosition a, GridPosition b)
     {
-        return new GridPosition(a.X - b.X, a.Z - b.Z);
+        return new GridPosition(a.x - b.x, a.z - b.z);
     }
 }
