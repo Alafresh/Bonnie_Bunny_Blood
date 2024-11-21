@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class ShootAction : BaseAction
 {
+    
     private enum State
     {
         Aiming,
         Shooting,
         CoolOff,
     }
+    
+    [SerializeField] LayerMask obstacleLayer;
+    
     private State _state;
     private int _maxShootDistance = 7;
     private float _stateTimer;
@@ -141,6 +145,19 @@ public class ShootAction : BaseAction
                     continue;
                 }
                 
+                Vector3 unitWorldPosition = LevelGrid.Instance.GetWorldPosition(unitGridPosition);
+                Vector3 shootDir = (targetUnit.GetWorldPosition() - unitWorldPosition).normalized;
+                
+                float unitShoulderHeight = 1.7f;
+                if (Physics.Raycast(
+                        unitWorldPosition + Vector3.up * unitShoulderHeight,
+                        shootDir,
+                        Vector3.Distance(unitWorldPosition, targetUnit.GetWorldPosition()),
+                        obstacleLayer))
+                {
+                    // blocked by obstacle
+                    continue;
+                }
                 validDestinations.Add(testGrdPosition);
             }
         }
