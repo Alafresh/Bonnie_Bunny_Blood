@@ -5,16 +5,20 @@ public class ScreenShake : MonoBehaviour
 {
     private CinemachineImpulseSource _impulseSource;
 
+    public static ScreenShake Instance {get ; private set;}
     private void Awake()
     {
+        if (Instance != null)
+        {
+            Debug.LogError("There is more than one instance of ScreenShake!");
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
         _impulseSource = GetComponent<CinemachineImpulseSource>();
     }
-
-    private void Update()
+    public void Shake(float intensity)
     {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            _impulseSource.GenerateImpulse();
-        }
+        _impulseSource.GenerateImpulse(intensity);
     }
 }
