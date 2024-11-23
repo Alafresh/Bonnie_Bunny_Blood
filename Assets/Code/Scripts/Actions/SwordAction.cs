@@ -4,17 +4,64 @@ using UnityEngine;
 
 public class SwordAction : BaseAction
 {
-    private int _maxSwordDistance = 1;
+    
+    
+    public event EventHandler OnSwordActionStarted;
+    public event EventHandler OnSwordActionCompleted;
 
+    private enum State
+    {
+        SwingingSwordBeforeHit,
+        SwingingSwordAfterHit,
+    }
+
+    private State _state;
+    private float stateTimer;
+    private Unit _targetUnit;
+    private int _maxSwordDistance = 1;
     private void Update()
     {
         if (!isActive)
         {
             return;
         }
-        ActionComplete();
+        
+        stateTimer -= Time.deltaTime;
+
+        switch (_state)
+        {
+            case State.SwingingSwordBeforeHit:
+                Vector3 aimDir = (_targetUnit.GetWorldPosition() - unit.GetWorldPosition()).normalized;
+                float rotateSpeed = 10f;
+                transform.forward = Vector3.Lerp(transform.forward, aimDir, rotateSpeed * Time.deltaTime);
+                break;
+            case State.SwingingSwordAfterHit:
+                break;
+        }
+
+        if (stateTimer <= 0)
+        {
+            NextState();
+        }
     }
 
+    private void NextState()
+    {
+        switch (_state)
+        {
+            case State.SwingingSwordBeforeHit:
+                _state = State.SwingingSwordAfterHit;
+                float afterHitStateTime = 0.5f;
+                stateTimer = afterHitStateTime;
+                _targetUnit.Damage(100);
+                break;
+            case State.SwingingSwordAfterHit:
+                OnSwordActionCompleted?.Invoke(this, EventArgs.Empty);
+                ActionComplete();
+                break;
+        }
+    }
+    
     public override string GetActionName()
     {
         return "Sword";
@@ -22,7 +69,13 @@ public class SwordAction : BaseAction
 
     public override void TakeAction(GridPosition gridPosition, Action onActionComplete)
     {
-        Debug.Log("Sword Action");
+        _targetUnit = LevelGrid.Instance.GetUnitAtGridPosition(gridPosition);
+        _state = State.SwingingSwordBeforeHit;
+        float beforeHitStateTime = 0.7f;
+        stateTimer = beforeHitStateTime;
+        
+        OnSwordActionStarted?.Invoke(this, EventArgs.Empty);
+        
         ActionStart(onActionComplete);
     }
 
@@ -41,6 +94,19 @@ public class SwordAction : BaseAction
                 {
                     continue;
                 }
+                if (!LevelGrid.Instance.HasAnyUnitOnGridPosition(testGrdPosition))
+                {
+                    // Grid Position is empty no unit
+                    continue;
+                }
+
+                Unit targetUnit = LevelGrid.Instance.GetUnitAtGridPosition(testGrdPosition);
+
+                if (targetUnit.IsEnemy() == unit.IsEnemy())
+                {
+                    // both units on same team
+                    continue;
+                }
                 validDestinations.Add(testGrdPosition);
             }
         }
@@ -55,5 +121,10 @@ public class SwordAction : BaseAction
             GridPosition = gridPosition,
             ActionValue = 200
         };
+    }
+
+    public int GetMaxSwordDistance()
+    {
+        return _maxSwordDistance;
     }
 }
