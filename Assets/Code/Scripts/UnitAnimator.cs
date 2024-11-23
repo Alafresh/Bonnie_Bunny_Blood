@@ -28,15 +28,20 @@ public class UnitAnimator : MonoBehaviour
             swordAction.OnSwordActionCompleted += SwordAction_OnSwordActionCompleted;
         }
     }
-
+    private void Start()
+    {
+        EquidRifle();
+    }
     private void SwordAction_OnSwordActionStarted(object sender, EventArgs e)
     {
         //animator.SetTrigger("SwordSlash");
+        EquidSword();
         Debug.Log("Sword Slash");
     }
 
     private void SwordAction_OnSwordActionCompleted(object sender, EventArgs e)
     {
+        EquidRifle();
         Debug.Log("Sword Slash Completed");
     }
     
@@ -66,5 +71,17 @@ public class UnitAnimator : MonoBehaviour
         targetUnitShootPosition.y = shootPointTransform.position.y;
         
         bulletProjectile.SetUp(targetUnitShootPosition);
+    }
+
+    private void EquidSword()
+    {
+        swordTransform.gameObject.SetActive(true);
+        rifleTransform.gameObject.SetActive(false);
+    }
+
+    private void EquidRifle()
+    {
+        swordTransform.gameObject.SetActive(false);
+        rifleTransform.gameObject.SetActive(true);
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class SwordAction : BaseAction
 {
     
-    
+    public static event EventHandler OnAnySwordHit;
     public event EventHandler OnSwordActionStarted;
     public event EventHandler OnSwordActionCompleted;
 
@@ -54,6 +54,7 @@ public class SwordAction : BaseAction
                 float afterHitStateTime = 0.5f;
                 stateTimer = afterHitStateTime;
                 _targetUnit.Damage(100);
+                OnAnySwordHit?.Invoke(this, EventArgs.Empty);
                 break;
             case State.SwingingSwordAfterHit:
                 OnSwordActionCompleted?.Invoke(this, EventArgs.Empty);
