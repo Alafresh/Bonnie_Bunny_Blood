@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Door : MonoBehaviour
+public class Door : MonoBehaviour, IInteractable
 {
     [SerializeField] private bool isOpen;
     private GridPosition _gridPosition;
@@ -18,7 +18,7 @@ public class Door : MonoBehaviour
     private void Start()
     {
         _gridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
-        LevelGrid.Instance.SetDoorAtGridPosition(_gridPosition, this);
+        LevelGrid.Instance.SetInteractableAtGridPosition(_gridPosition, this);
         if (isOpen)
         {
             OpenDoor();
