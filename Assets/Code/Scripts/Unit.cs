@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 public class Unit : MonoBehaviour
 {
     [SerializeField] private bool isEnemy;
-    private const int ACTION_POINTS_MAX = 9;
+    private const int ACTION_POINTS_MAX = 100;
     
     private HealthSystem _healthSystem;
     private GridPosition _gridPosition;
