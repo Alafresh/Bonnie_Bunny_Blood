@@ -47,18 +47,18 @@ Material:
     m_Ints: []
     m_Floats:
     - _FresnelAmount: 6.47
-    - _Metallic: 1.83
-    - _Power: 1.62
+    - _Metallic: 1
+    - _Power: -0.51
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Relieve: 7.2
+    - _Relieve: 111.09
     - _Relieve2: 3.49
-    - _SmootsNess: 5.55
+    - _SmootsNess: 0
     m_Colors:
     - _Color: {r: 1, g: 0.13054702, b: 0, a: 0}
-    - _FresnelColor: {r: 0.18867922, g: 0.09665247, b: 0, a: 0}
-    - _LavaScale: {r: 1, g: 1.54, b: 0, a: 0}
-    - _LavaScale2: {r: -1, g: -1, b: 0, a: 0}
+    - _FresnelColor: {r: 0, g: 0, b: 0, a: 0}
+    - _LavaScale: {r: 2, g: 3, b: 0, a: 0}
+    - _LavaScale2: {r: -2, g: -2, b: 0, a: 0}
     - _LavaSpeed: {r: 0.08, g: 0, b: 0, a: 0}
     - _LavaSpeed2: {r: -0.05, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
