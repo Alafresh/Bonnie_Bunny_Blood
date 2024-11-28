@@ -3012,8 +3012,8 @@
     "m_ObjectId": "8fd5d30abf21483bbb9e10111b2d0296",
     "m_Title": "Shader",
     "m_Position": {
-        "x": -1509.0,
-        "y": -38.00000762939453
+        "x": -1509.0001220703125,
+        "y": -37.99999237060547
     }
 }
 
@@ -3167,7 +3167,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 2.0,
+    "m_Value": 7.0,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -3883,7 +3883,7 @@
     "m_Title": "FresnelGrup",
     "m_Position": {
         "x": 1127.0001220703125,
-        "y": 255.99996948242188
+        "y": 256.0
     }
 }
 

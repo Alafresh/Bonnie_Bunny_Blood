@@ -7,13 +7,13 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Lava
-  m_Shader: {fileID: -6465566751694194690, guid: 3ad8b020d45a7c64982260f8ab83ba60, type: 3}
+  m_Name: Distorsion
+  m_Shader: {fileID: -6465566751694194690, guid: 0770fac81eb345b48820be1d86e59a65, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 2
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -24,12 +24,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _LavaTexture:
-        m_Texture: {fileID: 2800000, guid: e57a74ff454e9744c8b8644833d5b58d, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _LavaTexture2:
-        m_Texture: {fileID: 2800000, guid: d3f5fa0d2b687994f9c740f816decd5a, type: 3}
+    - _Mask:
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -46,24 +42,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FresnelAmount: 6.47
-    - _Metallic: 1.83
-    - _Power: 1.62
+    - _HeatDistortion: 0.01
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Relieve: 7.2
-    - _Relieve2: 3.49
-    - _SmootsNess: 5.55
     m_Colors:
-    - _Color: {r: 1, g: 0.13054702, b: 0, a: 0}
-    - _FresnelColor: {r: 0.18867922, g: 0.09665247, b: 0, a: 0}
-    - _LavaScale: {r: 1, g: 1.54, b: 0, a: 0}
-    - _LavaScale2: {r: -1, g: -1, b: 0, a: 0}
-    - _LavaSpeed: {r: 0.08, g: 0, b: 0, a: 0}
-    - _LavaSpeed2: {r: -0.05, g: 0, b: 0, a: 0}
+    - _distortion_speed: {r: 0.5, g: 0.5, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &358896972424102422
+--- !u!114 &1025268997729909737
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

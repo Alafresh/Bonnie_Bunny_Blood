@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Lava
-  m_Shader: {fileID: -6465566751694194690, guid: 3ad8b020d45a7c64982260f8ab83ba60, type: 3}
+  m_Name: Disolver
+  m_Shader: {fileID: -6465566751694194690, guid: de02cddc132c76b4986afa57e925bfa3, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -24,12 +24,12 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _LavaTexture:
-        m_Texture: {fileID: 2800000, guid: e57a74ff454e9744c8b8644833d5b58d, type: 3}
+    - _BaseMap:
+        m_Texture: {fileID: 2800000, guid: 56a09ff87f015d6439b0f700693e88e8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _LavaTexture2:
-        m_Texture: {fileID: 2800000, guid: d3f5fa0d2b687994f9c740f816decd5a, type: 3}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 6b1e997fe3e48dc438ce7955a9827310, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -46,24 +46,23 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FresnelAmount: 6.47
-    - _Metallic: 1.83
-    - _Power: 1.62
+    - _DissolveSpeed: 0
+    - _EgdWidth: 0
+    - _Metallic: 0
+    - _NoiseSca: 0
+    - _NormalStrenght: 2.41
+    - _Oclussion: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Relieve: 7.2
-    - _Relieve2: 3.49
-    - _SmootsNess: 5.55
+    - _Smoothness: 0
     m_Colors:
-    - _Color: {r: 1, g: 0.13054702, b: 0, a: 0}
-    - _FresnelColor: {r: 0.18867922, g: 0.09665247, b: 0, a: 0}
-    - _LavaScale: {r: 1, g: 1.54, b: 0, a: 0}
-    - _LavaScale2: {r: -1, g: -1, b: 0, a: 0}
-    - _LavaSpeed: {r: 0.08, g: 0, b: 0, a: 0}
-    - _LavaSpeed2: {r: -0.05, g: 0, b: 0, a: 0}
+    - _EdgeColor_1: {r: 0.7924528, g: 0.237522, b: 0, a: 0}
+    - _Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Tilling: {r: 1, g: 1, b: 0, a: 0}
+    - _Vector2: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &358896972424102422
+--- !u!114 &7873566611865052416
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
