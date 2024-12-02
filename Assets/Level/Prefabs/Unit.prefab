@@ -778,7 +778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79b5df3ae2553848af93a776f272c54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grenadeProjectilePrefb: {fileID: 7368209522759705405, guid: 2653cd0eee793e44aa68ae3ab09d546f, type: 3}
+  grenadeProjectilePrefb: {fileID: 1164577818827601839, guid: b01afb534cfe30648acbece1880553ea, type: 3}
 --- !u!114 &3402691618572698370
 MonoBehaviour:
   m_ObjectHideFlags: 0
