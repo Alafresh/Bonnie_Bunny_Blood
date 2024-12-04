@@ -34,7 +34,7 @@ public class UnitAnimator : MonoBehaviour
     }
     private void SwordAction_OnSwordActionStarted(object sender, EventArgs e)
     {
-        //animator.SetTrigger("SwordSlash");
+        animator.SetTrigger("SwordSlash");
         EquidSword();
         Debug.Log("Sword Slash");
     }
@@ -47,19 +47,19 @@ public class UnitAnimator : MonoBehaviour
     
     private void MoveAction_OnStartMoving(object sender, EventArgs e)
     {
-        //animator.SetBool(IsWalking, true);
+        animator.SetBool(IsWalking, true);
         Debug.Log("StartMoving");
     }
 
     private void MoveAction_OnStopMoving(object sender, EventArgs e)
     {
-        //animator.SetBool(IsWalking, false);
+        animator.SetBool(IsWalking, false);
         Debug.Log("StopMoving");
     }
 
     private void ShootAction_OnShoot(object sender, ShootAction.OnShotEventArgs e)
     {
-        //animator.SetTrigger("Shoot");
+        animator.SetTrigger("Shoot");
         Debug.Log("Shooting anim");
         Transform bulletProjectileTransform =
             Instantiate(bulletProjectilePrefab, shootPointTransform.position, Quaternion.identity);
