@@ -16,6 +16,7 @@ public class InteractSphere : MonoBehaviour, IInteractable
     {
         _gridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
         LevelGrid.Instance.SetInteractableAtGridPosition(_gridPosition, this);
+        Pathfinding.Instance.SetIsWalkableGriPosition(_gridPosition,false);
         SetColorGreen();
     }
 
