@@ -7,6 +7,11 @@ public class CameraController : MonoBehaviour
     [SerializeField] CinemachineFollow cameraFollow;
     private const float MaxZoomOffset = 12f;
     private const float MinZoomOffset = 2f;
+    private const float MaxTransformZOffset = 94f;
+    private const float MinTransformZOffset = -2f;
+    private const float MaxTransformXOffset = 90f;
+    private const float MinTransformXOffset = 0f;
+    
     private Vector3 cameraTarget;
 
     private void Start()
@@ -25,8 +30,17 @@ public class CameraController : MonoBehaviour
     {
         Vector2 inputMoveDir = InputManager.Instance.GetCameraMoveVector();
         float moveSpeed = 5f;
+    
+        // Calculate movement
         Vector3 moveVector = transform.forward * inputMoveDir.y + transform.right * inputMoveDir.x;
-        transform.position += moveVector * (moveSpeed * Time.deltaTime);
+        Vector3 newPosition = transform.position + moveVector * (moveSpeed * Time.deltaTime);
+    
+        // Apply limits of movement
+        newPosition.x = Mathf.Clamp(newPosition.x, MinTransformXOffset, MaxTransformXOffset);
+        newPosition.z = Mathf.Clamp(newPosition.z, MinTransformZOffset, MaxTransformZOffset);
+
+        // Update camera position
+        transform.position = newPosition;
     }
 
     private void CameraRotation()
