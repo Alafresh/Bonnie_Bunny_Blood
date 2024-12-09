@@ -20,18 +20,20 @@ public class CameraManager : MonoBehaviour
                 Unit shooterUnit = shootAction.GetUnit();
                 Unit targetUnit = shootAction.GetTargetUnit();
                 Vector3 cameraCharacterHeight;
+                float shoulderOffsetAmount;
                 if (!targetUnit.IsEnemy())
                 {
                     cameraCharacterHeight = Vector3.up * 1.7f;
+                    shoulderOffsetAmount = 0.5f;
                 }
                 else
                 {
-                    cameraCharacterHeight = Vector3.up * 0.87f;
+                    cameraCharacterHeight = Vector3.up * 0.76f;
+                    shoulderOffsetAmount = 0.9f;
                 }
                 Vector3 shootDir = (targetUnit.GetWorldPosition() - shooterUnit.GetWorldPosition()).normalized;
-
-                float shoulderOffsetAmount = 0.5f;
-                Vector3 shouderOffset = Quaternion.Euler(0, 90, 0) * shootDir * shoulderOffsetAmount;
+                
+                Vector3 shouderOffset = Quaternion.Euler(0, 80, 0) * shootDir * shoulderOffsetAmount;
 
                 Vector3 actionCameraPosition = shooterUnit.GetWorldPosition() + 
                                                cameraCharacterHeight + 
