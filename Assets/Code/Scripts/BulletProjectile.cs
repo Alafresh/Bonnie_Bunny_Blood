@@ -18,7 +18,7 @@ public class BulletProjectile : MonoBehaviour
         
         float distanceBeforeMoving = Vector3.Distance(transform.position, _targetPosition);
         
-        float moveSpeed = 100f;
+        float moveSpeed = 50f;
         transform.position += moveDir * (moveSpeed * Time.deltaTime);
         
         float afterBeforeMoving = Vector3.Distance(transform.position, _targetPosition);
