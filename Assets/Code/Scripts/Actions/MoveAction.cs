@@ -71,7 +71,7 @@ public class MoveAction : BaseAction
         {
             for (int z = -maxMoveDistance; z <= maxMoveDistance; z++)
             {
-                GridPosition offsetGrdPosition = new GridPosition(x, z);
+                GridPosition offsetGrdPosition = new GridPosition(x, z, 0);
                 GridPosition testGrdPosition = unitGridPosition + offsetGrdPosition;
                 if (!LevelGrid.Instance.IsValidGridPosition(testGrdPosition))
                 {
