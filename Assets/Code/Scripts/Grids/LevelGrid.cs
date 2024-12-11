@@ -8,7 +8,7 @@ public class LevelGrid : MonoBehaviour
 
     public static LevelGrid Instance { get; private set; }
 
-    public const float FLOOR_HEIGHT = 3f;
+    public const float FLOOR_HEIGHT = 1f;
 
     [SerializeField] int width;
     [SerializeField] int height;

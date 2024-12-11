@@ -2953,7 +2953,7 @@ GameObject:
   - component: {fileID: 246258204}
   - component: {fileID: 246258203}
   m_Layer: 6
-  m_Name: Plane
+  m_Name: Piso_primero
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3043,8 +3043,8 @@ Transform:
   m_GameObject: {fileID: 246258202}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43.8, y: 0, z: 42}
-  m_LocalScale: {x: 9, y: 1, z: 9}
+  m_LocalPosition: {x: 43.8, y: -0, z: 14.4939}
+  m_LocalScale: {x: 9, y: 1, z: 3.4983675}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3266,7 +3266,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 337352775}
   m_Mesh: {fileID: -8979537845943973329, guid: c0f50e3b8b59bc74db44d621e3d22eca, type: 3}
---- !u!1 &351183613
+--- !u!1 &344942945
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3274,24 +3274,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 351183617}
-  - component: {fileID: 351183616}
-  - component: {fileID: 351183615}
-  - component: {fileID: 351183614}
+  - component: {fileID: 344942949}
+  - component: {fileID: 344942948}
+  - component: {fileID: 344942947}
+  - component: {fileID: 344942946}
   m_Layer: 6
-  m_Name: PlaneFloor2
+  m_Name: Piso_segundo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &351183614
+--- !u!64 &344942946
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 351183613}
+  m_GameObject: {fileID: 344942945}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -3307,13 +3307,13 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &351183615
+--- !u!23 &344942947
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 351183613}
+  m_GameObject: {fileID: 344942945}
   m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -3352,25 +3352,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &351183616
+--- !u!33 &344942948
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 351183613}
+  m_GameObject: {fileID: 344942945}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &351183617
+--- !u!4 &344942949
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 351183613}
+  m_GameObject: {fileID: 344942945}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 47.7659, y: 1.24, z: 33.8081}
-  m_LocalScale: {x: 1.5701561, y: 1, z: 0.3253948}
+  m_LocalPosition: {x: 47.9143, y: 1.26, z: 34.1103}
+  m_LocalScale: {x: 1.6046466, y: 1, z: 0.39857933}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -8727,7 +8727,7 @@ MonoBehaviour:
   width: 60
   height: 30
   cellSize: 2
-  floorAmount: 2
+  floorAmount: 3
   gridDebugObjectPrefab: {fileID: 2187151567992047430, guid: bf5921ba32708ee4f81a31e9bbb01f13, type: 3}
 --- !u!4 &1200940128
 Transform:
@@ -11383,7 +11383,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1073262285137153688, guid: 72ceb91ae3a6cdb4e8a2d85669cfbdbe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2
+      value: -0.36
       objectReference: {fileID: 0}
     - target: {fileID: 1073262285137153688, guid: 72ceb91ae3a6cdb4e8a2d85669cfbdbe, type: 3}
       propertyPath: m_LocalPosition.z
@@ -48861,7 +48861,7 @@ SceneRoots:
   - {fileID: 1998397055}
   - {fileID: 515377449}
   - {fileID: 246258206}
-  - {fileID: 351183617}
+  - {fileID: 344942949}
   - {fileID: 1602832874}
   - {fileID: 678231837}
   - {fileID: 1257492759}
