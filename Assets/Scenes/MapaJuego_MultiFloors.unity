@@ -6100,6 +6100,7 @@ Transform:
   - {fileID: 1717309769}
   - {fileID: 696162679}
   - {fileID: 1858302718}
+  - {fileID: 1714093807}
   - {fileID: 1078879907}
   - {fileID: 2031518778}
   - {fileID: 585942261}
@@ -12518,7 +12519,7 @@ MonoBehaviour:
   width: 60
   height: 60
   cellSize: 2
-  floorAmount: 3
+  floorAmount: 2
   gridDebugObjectPrefab: {fileID: 2187151567992047430, guid: bf5921ba32708ee4f81a31e9bbb01f13, type: 3}
 --- !u!4 &1200940128
 Transform:
@@ -17138,6 +17139,59 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00006269198, y: 0.020996237, z: -0.0005221779}
     m_Extent: {x: 0.01072688, y: 0.010047186, z: 0.0020666085}
   m_DirtyAABB: 0
+--- !u!1 &1714093806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1714093807}
+  - component: {fileID: 1714093808}
+  m_Layer: 8
+  m_Name: PiedraPlanchon (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1714093807
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714093806}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.34, y: 0, z: 24.77}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 515377449}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1714093808
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714093806}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.53825, y: 1.6679058, z: 2.3034248}
+  m_Center: {x: -0.26912498, y: 0.3339529, z: 0.38663292}
 --- !u!1 &1716118152
 GameObject:
   m_ObjectHideFlags: 0
@@ -20221,6 +20275,9 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 256
+  floorMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!4 &2078570635
 Transform:
   m_ObjectHideFlags: 0

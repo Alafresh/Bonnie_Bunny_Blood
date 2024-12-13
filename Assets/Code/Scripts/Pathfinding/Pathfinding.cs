@@ -13,6 +13,7 @@ public class Pathfinding : MonoBehaviour
 
     [SerializeField] private Transform gridDebugObjectPrefab;
     [SerializeField] private LayerMask obstacleMask;
+    [SerializeField] private LayerMask floorMask;
     
 
     private int width;
@@ -51,7 +52,6 @@ public class Pathfinding : MonoBehaviour
             gridSystemList.Add(gridSystem);
         }
         
-
         for (int x = 0; x < width; x++)
         {
             for (int z = 0; z < height; z++)
@@ -60,7 +60,18 @@ public class Pathfinding : MonoBehaviour
                 {
                     GridPosition gridPosition = new GridPosition(x, z, floor);
                     Vector3 worldPosition = LevelGrid.Instance.GetWorldPosition(gridPosition);
-                    float raycastOffsetDistance = 0.9f;
+                    float raycastOffsetDistance = 5f;
+                    
+                    GetNode(x, z, floor).SetIsWalkable(false);
+                    
+                    if (Physics.Raycast(worldPosition + Vector3.up * raycastOffsetDistance,
+                            Vector3.down,
+                            raycastOffsetDistance * 2,
+                            floorMask))
+                    {
+                        GetNode(x, z, floor).SetIsWalkable(true);
+                    }
+                    
                     if (Physics.Raycast(worldPosition + Vector3.down * raycastOffsetDistance,
                             Vector3.up,
                             raycastOffsetDistance * 2,
@@ -233,7 +244,22 @@ public class Pathfinding : MonoBehaviour
             neighbourList.Add(GetNode(gridPosition.x + 0, gridPosition.z + 1, gridPosition.floor));
         }
 
-        return neighbourList;
+        List<PathNode> totalNeighbourList = new List<PathNode>();
+        totalNeighbourList.AddRange(neighbourList);
+
+        foreach (PathNode pathNode in neighbourList)
+        {
+            GridPosition neighbourGridPosition = pathNode.GetGridPosition();
+            if (neighbourGridPosition.floor - 1 >= 0)
+            {
+                totalNeighbourList.Add(GetNode(neighbourGridPosition.x, neighbourGridPosition.z, neighbourGridPosition.floor - 1));
+            }
+            if (neighbourGridPosition.floor + 1 < floorAmount)
+            {
+                totalNeighbourList.Add(GetNode(neighbourGridPosition.x, neighbourGridPosition.z, neighbourGridPosition.floor + 1));
+            }
+        }
+        return totalNeighbourList;
     }
 
     private List<GridPosition> CalculatePath(PathNode endNode)
