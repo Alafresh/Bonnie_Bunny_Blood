@@ -43,6 +43,17 @@ public class MoveAction : BaseAction
                 OnStopMoving?.Invoke(this, EventArgs.Empty);
                 ActionComplete();
             }
+            else
+            {
+                targetPosition = positionList[_currentPositionIndex];
+                GridPosition targetGridPosition = LevelGrid.Instance.GetGridPosition(targetPosition);
+                GridPosition unitGridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
+
+                if (targetGridPosition.floor != unitGridPosition.floor)
+                {
+                    //diffentent floors
+                }
+            }
         }
     }
 
