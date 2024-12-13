@@ -25,6 +25,7 @@ public class Unit : MonoBehaviour
     private void Start()
     {
         _gridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
+        Debug.Log(_gridPosition);
         LevelGrid.Instance.AddUnitAtGridPosition(_gridPosition, this);
         TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
         _healthSystem.OnDead += HealthSystem_OnDead;

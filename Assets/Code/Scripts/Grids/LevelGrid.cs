@@ -8,7 +8,7 @@ public class LevelGrid : MonoBehaviour
 
     public static LevelGrid Instance { get; private set; }
 
-    public const float FLOOR_HEIGHT = 1f;
+    public const float FLOOR_HEIGHT = 1.3f;
 
     [SerializeField] int width;
     [SerializeField] int height;
@@ -97,6 +97,7 @@ public class LevelGrid : MonoBehaviour
     public int GetWidth() => GetGridSystem(0).GetWidth();
     
     public int GetHeight() => GetGridSystem(0).GetHeight();
+    public int GetFloorAmount() => floorAmount;
 
     public bool HasAnyUnitOnGridPosition(GridPosition gridPosition)
     {
