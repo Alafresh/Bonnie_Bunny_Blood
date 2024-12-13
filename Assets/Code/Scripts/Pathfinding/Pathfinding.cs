@@ -14,6 +14,7 @@ public class Pathfinding : MonoBehaviour
     [SerializeField] private Transform gridDebugObjectPrefab;
     [SerializeField] private LayerMask obstacleMask;
     [SerializeField] private LayerMask floorMask;
+    [SerializeField] private Transform pathfindingLinkContainer;
     
 
     private int width;
@@ -61,7 +62,7 @@ public class Pathfinding : MonoBehaviour
                 {
                     GridPosition gridPosition = new GridPosition(x, z, floor);
                     Vector3 worldPosition = LevelGrid.Instance.GetWorldPosition(gridPosition);
-                    float raycastOffsetDistance = 5f;
+                    float raycastOffsetDistance = 1f;
                     
                     GetNode(x, z, floor).SetIsWalkable(false);
                     
@@ -84,11 +85,14 @@ public class Pathfinding : MonoBehaviour
             }
         }
         pathfindingLinksList = new List<PathfindingLink>();
-        pathfindingLinksList.Add(new PathfindingLink()
+
+        foreach (Transform pathfindingLinkTransform in pathfindingLinkContainer)
         {
-            gridPositionA = new GridPosition(23, 15, 0),
-            gridPositionB = new GridPosition(23, 17, 1)
-        });
+            if (pathfindingLinkTransform.TryGetComponent(out PathfindingLinkMonoBehaviour pathfindingLinkMonoBehaviour))
+            {
+                pathfindingLinksList.Add(pathfindingLinkMonoBehaviour.GetPathfindingLink());
+            }
+        }
     }
     
     public List<GridPosition> FindPath(GridPosition startGridPosition, GridPosition endGridPosition, out int pathLength)
