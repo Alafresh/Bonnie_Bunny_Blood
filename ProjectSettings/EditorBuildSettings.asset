@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: b9729619b51de5d44b8d3a53a3134f36
   - enabled: 1
-    path: Assets/Scenes/MapaJuego.unity
-    guid: 0ef12faf67968ac4ea5844083a78d729
+    path: Assets/Scenes/MapaJuego_MultiFloors.unity
+    guid: feb225041ca60094daba2f4eb5bf4da8
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

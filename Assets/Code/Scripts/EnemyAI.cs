@@ -69,8 +69,10 @@ public class EnemyAI : MonoBehaviour
 
     private bool TryTakeEnemyAIAction(Action onEnemyAIActionComplete)
     {
-        Debug.Log("Take Enemy AI Action");
-        Debug.Log("Enemy list count: " + UnitManager.Instance.GetEnemyUnitList().Count);
+        if (UnitManager.Instance.GetFriendlyUnitList().Count <= 0)
+        {
+            LevelGrid.Instance.GameOver();
+        }
         foreach (Unit enemyUnit in UnitManager.Instance.GetEnemyUnitList())
         {
             Debug.Log("ciclo");

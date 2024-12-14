@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelGrid : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class LevelGrid : MonoBehaviour
     [SerializeField] int height;
     [SerializeField] private float cellSize;
     [SerializeField] private int floorAmount;
+    [SerializeField] private GameObject gameover;
+
+    private bool _gameoverFlag;
+    private float countDown = 5;
     public event EventHandler OnAnyUnitMovedGridPosition;
 
 
@@ -47,6 +52,21 @@ public class LevelGrid : MonoBehaviour
         Pathfinding.Instance.SetUp(width, height, cellSize, floorAmount);
     }
 
+    private void Update()
+    {
+        if (!_gameoverFlag) return;
+        gameover.SetActive(true);
+        countDown -= Time.deltaTime;
+        if (countDown <= 0)
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
+
+    public void GameOver()
+    {
+        _gameoverFlag = true;
+    }
     private GridSystem<GridObject> GetGridSystem(int floor)
     {
         return gridSystemList[floor];

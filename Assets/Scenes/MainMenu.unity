@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 012a941a9f21c924abf53cc6e383ffb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: MapaJuego
+  sceneName: MapaJuego_MultiFloors
 --- !u!4 &176493071
 Transform:
   m_ObjectHideFlags: 0

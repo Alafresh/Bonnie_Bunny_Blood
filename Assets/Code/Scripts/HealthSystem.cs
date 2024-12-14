@@ -4,6 +4,7 @@ public class HealthSystem : MonoBehaviour
 {
     [SerializeField] private int health = 100;
     private int _healthMax;
+    
     public event EventHandler OnDead;
     public event EventHandler OnDamage;
 
@@ -23,6 +24,8 @@ public class HealthSystem : MonoBehaviour
         OnDamage?.Invoke(this, EventArgs.Empty);
         if (health == 0)
         {
+            
+            Debug.Log(UnitManager.Instance.GetFriendlyUnitList().Count);
             Die();
         }
         Debug.Log(health);

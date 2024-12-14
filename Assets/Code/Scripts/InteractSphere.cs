@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class InteractSphere : MonoBehaviour, IInteractable
 {
@@ -8,7 +9,9 @@ public class InteractSphere : MonoBehaviour, IInteractable
     [SerializeField] private Material redMaterial;
     [SerializeField] private MeshRenderer meshRenderer;
     [SerializeField] private List<GameObject> waves;
-    
+    [SerializeField] private GameObject cameraWave;
+
+    public bool lastContainer;
     private Action _onInteractComplete;
     private float _timer;
     private bool _isActive;
@@ -32,6 +35,7 @@ public class InteractSphere : MonoBehaviour, IInteractable
         if (_timer <= 0)
         {
             _isActive = false;
+            cameraWave.SetActive(false);
             _onInteractComplete();
         }
     }
@@ -46,6 +50,12 @@ public class InteractSphere : MonoBehaviour, IInteractable
     {
         _isGreen = false;
         meshRenderer.material = redMaterial;
+        if (lastContainer)
+        {
+            SceneManager.LoadScene(0);
+            return;
+        }
+        cameraWave.SetActive(true);
         foreach (GameObject wave in waves)
         {
             wave.SetActive(true);
@@ -56,7 +66,7 @@ public class InteractSphere : MonoBehaviour, IInteractable
     {
         _onInteractComplete = onInteractionComplete;
         _isActive = true;
-        _timer = 0.5f;
+        _timer = 2f;
         if (_isGreen)
         {
             SetColorRed();
