@@ -4,6 +4,8 @@ using UnityEngine;
 public class UnitAnimator : MonoBehaviour
 {
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
+    private static readonly int JumpUp = Animator.StringToHash("JumpUp");
+    private static readonly int JumpDown = Animator.StringToHash("JumpDown");
     [SerializeField] private Animator animator;
     [SerializeField] private Transform bulletProjectilePrefab;
     [SerializeField] private Transform shootPointTransform;
@@ -16,6 +18,7 @@ public class UnitAnimator : MonoBehaviour
         {
             moveAction.OnStartMoving += MoveAction_OnStartMoving;
             moveAction.OnStopMoving += MoveAction_OnStopMoving;
+            moveAction.OnChangedFloorsStarted += MoveAction_OnChangedFloorsStarted;
         }
 
         if (TryGetComponent(out ShootAction shootAction))
@@ -26,6 +29,18 @@ public class UnitAnimator : MonoBehaviour
         {
             swordAction.OnSwordActionStarted += SwordAction_OnSwordActionStarted;
             swordAction.OnSwordActionCompleted += SwordAction_OnSwordActionCompleted;
+        }
+    }
+
+    private void MoveAction_OnChangedFloorsStarted(object sender, MoveAction.OnChangeFloorsStartedEventArgs e)
+    {
+        if (e.targetGridPosition.floor > e.unitGridPosition.floor)
+        {
+            animator.SetTrigger(JumpUp);
+        }
+        else
+        {
+            animator.SetTrigger(JumpDown);
         }
     }
     private void Start()
