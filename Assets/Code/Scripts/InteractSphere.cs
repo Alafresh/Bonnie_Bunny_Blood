@@ -1,11 +1,13 @@
 using System;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class InteractSphere : MonoBehaviour, IInteractable
 {
     [SerializeField] private Material greenMaterial;
     [SerializeField] private Material redMaterial;
     [SerializeField] private MeshRenderer meshRenderer;
+    [SerializeField] private List<GameObject> waves;
     
     private Action _onInteractComplete;
     private float _timer;
@@ -44,6 +46,10 @@ public class InteractSphere : MonoBehaviour, IInteractable
     {
         _isGreen = false;
         meshRenderer.material = redMaterial;
+        foreach (GameObject wave in waves)
+        {
+            wave.SetActive(true);
+        }
     }
 
     public void Interact(Action onInteractionComplete)
