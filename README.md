@@ -13,6 +13,21 @@ En una versión distópica de Australia, donde la naturaleza ha sido destruida p
 ¡Explora ruinas, activa contenedores estratégicos y utiliza habilidades de tu ejército para sobrevivir!
 
 ---
+## Trailer
+
+¡Mira el trailer oficial de **Bonnie Bunny Blood War** aquí!
+
+[![Trailer de Bonnie Bunny Blood War](https://img.youtube.com/vi/-yrQU1-xZ7k/0.jpg)](https://youtu.be/-yrQU1-xZ7k?si=c5UovxqCd0D9KAj4)
+
+---
+
+## Descubre la revolución de los conejos
+
+¡Es tu momento de liderar el cambio!
+
+[Juegalo en itch](https://a-la-fresh.itch.io/bonnie-bunny-blood). 
+
+---
 
 ## Características principales
 
@@ -47,19 +62,4 @@ En una versión distópica de Australia, donde la naturaleza ha sido destruida p
 
 ![Gameplay Screenshot 2](Assets/Art/Screenshot/GameplayConejos2.jpg)
 
----
-
-## Trailer
-
-¡Mira el trailer oficial de **Bonnie Bunny Blood War** aquí!
-
-[![Trailer de Bonnie Bunny Blood War](https://img.youtube.com/vi/-yrQU1-xZ7k/0.jpg)](https://youtu.be/-yrQU1-xZ7k?si=c5UovxqCd0D9KAj4)
-
----
-
-## Descubre la revolución de los conejos
-
-¡Es tu momento de liderar el cambio!
-
-[Juegalo en itch](https://a-la-fresh.itch.io/bonnie-bunny-blood). 
 
