@@ -43,7 +43,7 @@ En una versión distópica de Australia, donde la naturaleza ha sido destruida p
 
 ## Capturas de pantalla
 
-![Gameplay Screenshot 1](\Assets\Art\Screenshot\GameplayConejos)
+![Gameplay Screenshot 1](Assets/Art/Screenshot/GameplayConejos.png)
 
 ![Gameplay Screenshot 2](#)
 
