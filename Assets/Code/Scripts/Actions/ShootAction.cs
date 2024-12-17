@@ -19,6 +19,7 @@ public class ShootAction : BaseAction
     private float _stateTimer;
     private Unit _targetUnit;
     private bool _canShootBullet;
+    private int _damage;
 
     public event EventHandler<OnShotEventArgs> OnShoot;
     public static event EventHandler<OnShotEventArgs> OnAnyShoot;
@@ -28,6 +29,21 @@ public class ShootAction : BaseAction
         public Unit targetUnit;
         public Unit shootingUnit;
     }
+
+    
+
+    private void Start()
+    {
+        if (unit.IsEnemy())
+        {
+            _damage = 15;
+        }
+        else
+        {
+            _damage = 40;
+        }
+    }
+
     private void Update()
     {
         if (!isActive)
@@ -94,7 +110,7 @@ public class ShootAction : BaseAction
             shootingUnit = unit
         });
         
-        _targetUnit.Damage(40);
+        _targetUnit.Damage(_damage);
     }
     public override string GetActionName()
     {
