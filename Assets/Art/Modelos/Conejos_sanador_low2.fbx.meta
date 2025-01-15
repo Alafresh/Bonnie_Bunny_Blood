@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 4639738872c35174ba9328d547c8f892
+guid: c7ed891a538f1d241aa21f20553927fa
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: cabeza
-    second: {fileID: 2100000, guid: b29fd154b6bff20439c2f087760b158b, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
