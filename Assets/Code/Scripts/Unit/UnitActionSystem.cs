@@ -15,6 +15,7 @@ public class UnitActionSystem : MonoBehaviour
     
     [SerializeField] private Unit selectedUnit;
     [SerializeField] private LayerMask unitLayerMask;
+    [SerializeField] private LayerMask enemyLayerMask;
 
     private void Awake()
     {
@@ -54,8 +55,9 @@ public class UnitActionSystem : MonoBehaviour
         if (InputManager.Instance.IsMouseButtonDownThisFrame())
         {
             GridPosition mouseGridPosition = LevelGrid.Instance.GetGridPosition(MouseWorld.GetMouseWorldPosition());
-            
-            if (_selectedAction.IsValidActionGridPosition(mouseGridPosition))
+            Ray ray = Camera.main.ScreenPointToRay(InputManager.Instance.GetMouseScreenPosition());
+
+            if (_selectedAction.IsValidActionGridPosition(mouseGridPosition) || Physics.Raycast(ray, out RaycastHit hit, float.MaxValue, enemyLayerMask))
             {
                 if (selectedUnit.TrySpendActionPointsToTakeAction(_selectedAction))
                 {
