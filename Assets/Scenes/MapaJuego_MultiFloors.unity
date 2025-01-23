@@ -10921,6 +10921,9 @@ MonoBehaviour:
   unitLayerMask:
     serializedVersion: 2
     m_Bits: 128
+  enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!4 &1223337452
 Transform:
   m_ObjectHideFlags: 0

@@ -57,13 +57,31 @@ public class UnitActionSystem : MonoBehaviour
             GridPosition mouseGridPosition = LevelGrid.Instance.GetGridPosition(MouseWorld.GetMouseWorldPosition());
             Ray ray = Camera.main.ScreenPointToRay(InputManager.Instance.GetMouseScreenPosition());
 
-            if (_selectedAction.IsValidActionGridPosition(mouseGridPosition) || Physics.Raycast(ray, out RaycastHit hit, float.MaxValue, enemyLayerMask))
+            if (_selectedAction.IsValidActionGridPosition(mouseGridPosition))
             {
                 if (selectedUnit.TrySpendActionPointsToTakeAction(_selectedAction))
                 {
                     SetBusy();
                     _selectedAction.TakeAction(mouseGridPosition, ClearBusy);
                     OnActionStarted?.Invoke(this, EventArgs.Empty);
+                }
+            }
+            else if(Physics.Raycast(ray, out RaycastHit hit, float.MaxValue, enemyLayerMask))
+            {
+                if (hit.transform.TryGetComponent(out Unit unit))
+                {
+                    if (unit.IsEnemy())
+                    {
+                        if (_selectedAction.IsValidActionGridPosition(unit.GetGridPosition()))
+                        {
+                            if (selectedUnit.TrySpendActionPointsToTakeAction(_selectedAction))
+                            {
+                                SetBusy();
+                                _selectedAction.TakeAction(unit.GetGridPosition(), ClearBusy);
+                                OnActionStarted?.Invoke(this, EventArgs.Empty);
+                            }
+                        }
+                    }
                 }
             }
         }
