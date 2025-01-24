@@ -6,6 +6,11 @@ public class MouseWorld : MonoBehaviour
     [SerializeField] private LayerMask mousePlaneLayerMask;
     private static MouseWorld _instance;
 
+    private void OnDestroy()
+    {
+        if (_instance == this) _instance = null;
+    }
+
     private void Awake()
     {
         _instance = this;

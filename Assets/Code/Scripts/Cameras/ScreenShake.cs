@@ -6,6 +6,12 @@ public class ScreenShake : MonoBehaviour
     private CinemachineImpulseSource _impulseSource;
 
     public static ScreenShake Instance {get ; private set;}
+
+    private void OnDestroy()
+    {
+        if (Instance == this) Instance = null;
+    }
+
     private void Awake()
     {
         if (Instance != null)

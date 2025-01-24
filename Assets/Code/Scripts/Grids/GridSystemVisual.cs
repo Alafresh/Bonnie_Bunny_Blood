@@ -26,6 +26,11 @@ public class GridSystemVisual : MonoBehaviour
     
     private GridSystemVisualSingle[,,] _gridSystemVisualSinglesArray;
 
+    private void OnDestroy()
+    {
+        if (Instance == this) Instance = null;
+    }
+
     private void Awake()
     {
         if (Instance != null)

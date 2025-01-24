@@ -31,10 +31,6 @@ public class UnitActionSystemUI : MonoBehaviour
 
     private void OnDisable()
     {
-        UnitActionSystem.Instance.OnSelectedUnitChanged -= UnitActionSystem_OnSelectedUnitChanged;
-        UnitActionSystem.Instance.OnSelectedActionChanged -= UnitActionSystem_OnSelectedActionChanged;
-        UnitActionSystem.Instance.OnActionStarted -= UnitActionSystem_OnActionStarted;
-        TurnSystem.Instance.OnTurnChanged -= TurnSystem_OnTurnChanged;
         Unit.RemoveAllEventListeners();
     }
 

@@ -7,15 +7,11 @@ public class CameraManager : MonoBehaviour
 
     private void Start()
     {
+        
         BaseAction.OnAnyActionStarted += BaseAction_OnAnyActionStarted;
         BaseAction.OnAnyActionCompleted += BaseAction_OnAnyActionCompleted;
         HideActionCamera();
     }
-    private void OnDestroy()
-    {
-        BaseAction.ClearEvents();
-    }
-
     private void BaseAction_OnAnyActionStarted(object sender, System.EventArgs e)
     {
         switch (sender)
