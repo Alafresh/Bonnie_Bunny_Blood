@@ -32,6 +32,25 @@ public class UnitAnimator : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        if (TryGetComponent(out MoveAction moveAction))
+        {
+            moveAction.OnStartMoving -= MoveAction_OnStartMoving;
+            moveAction.OnStopMoving -= MoveAction_OnStopMoving;
+            moveAction.OnChangedFloorsStarted -= MoveAction_OnChangedFloorsStarted;
+        }
+        if (TryGetComponent(out ShootAction shootAction))
+        {
+            shootAction.OnShoot -= ShootAction_OnShoot;
+        }
+        if (TryGetComponent(out SwordAction swordAction))
+        {
+            swordAction.OnSwordActionStarted -= SwordAction_OnSwordActionStarted;
+            swordAction.OnSwordActionCompleted -= SwordAction_OnSwordActionCompleted;
+        }
+    }
+
     private void MoveAction_OnChangedFloorsStarted(object sender, MoveAction.OnChangeFloorsStartedEventArgs e)
     {
         if (e.targetGridPosition.floor > e.unitGridPosition.floor)

@@ -75,5 +75,11 @@ public abstract class BaseAction : MonoBehaviour
         }
     }
     
+    public static void ClearEvents()
+    {
+        OnAnyActionStarted = null;
+        OnAnyActionCompleted = null;
+    }
+
     public abstract EnemyAIAction GetEnemyAIAction(GridPosition gridPosition);
 }

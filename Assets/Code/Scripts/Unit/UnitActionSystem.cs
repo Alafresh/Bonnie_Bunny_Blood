@@ -70,18 +70,17 @@ public class UnitActionSystem : MonoBehaviour
             {
                 if (hit.transform.TryGetComponent(out Unit unit))
                 {
-                    if (unit.IsEnemy())
+                    
+                    if (_selectedAction.IsValidActionGridPosition(unit.GetGridPosition()))
                     {
-                        if (_selectedAction.IsValidActionGridPosition(unit.GetGridPosition()))
+                        if (selectedUnit.TrySpendActionPointsToTakeAction(_selectedAction))
                         {
-                            if (selectedUnit.TrySpendActionPointsToTakeAction(_selectedAction))
-                            {
-                                SetBusy();
-                                _selectedAction.TakeAction(unit.GetGridPosition(), ClearBusy);
-                                OnActionStarted?.Invoke(this, EventArgs.Empty);
-                            }
+                            SetBusy();
+                            _selectedAction.TakeAction(unit.GetGridPosition(), ClearBusy);
+                            OnActionStarted?.Invoke(this, EventArgs.Empty);
                         }
                     }
+                    
                 }
             }
         }

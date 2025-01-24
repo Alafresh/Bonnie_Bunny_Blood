@@ -4,18 +4,12 @@ using System.Collections;
 
 public class SceneLoader : MonoBehaviour
 {
-    public string sceneName; // Nombre de la escena a cargar
-
-    public void LoadScene(string scene)
+    public void LoadNewScene(string sceneName)
     {
-        SceneManager.LoadScene(scene);
-    }
-    public void LoadNewScene()
-    {
-        StartCoroutine(LoadSceneAsync());
+        StartCoroutine(LoadSceneAsync(sceneName));
     }
 
-    private IEnumerator LoadSceneAsync()
+    private IEnumerator LoadSceneAsync(string sceneName)
     {
         // Inicia la carga de la escena de forma asíncrona
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);

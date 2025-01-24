@@ -14,6 +14,11 @@ public class GrenadeProjectile : MonoBehaviour
     private float _totalDistance;
     private Vector3 _positionXZ;
 
+    public static void RemoveEvents()
+    {
+        OnAnyGrenadeExplode = null;
+    }
+
     private void Update()
     {
         Vector3 moveDir = (_targetPosition - _positionXZ).normalized;

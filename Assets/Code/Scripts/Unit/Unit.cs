@@ -32,6 +32,13 @@ public class Unit : MonoBehaviour
         OnAnyUnitSpawned?.Invoke(this, EventArgs.Empty);
     }
 
+    public static void RemoveAllEventListeners()
+    {
+        OnAnyActionsPointsChanged = null;
+        OnAnyUnitSpawned = null;
+        OnAnyUnitDead = null;
+    }
+
     private void Update()
     {
         

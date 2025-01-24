@@ -11,6 +11,11 @@ public class DesctructibleCrate : MonoBehaviour
         _gridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
     }
 
+    public static void RemoveAllEventListeners()
+    {
+        OnAnyDestroyed = null;
+    }
+
     public GridPosition GetGridPosition()
     {
         return _gridPosition;
