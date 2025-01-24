@@ -6,6 +6,10 @@ public class SceneLoader : MonoBehaviour
 {
     public string sceneName; // Nombre de la escena a cargar
 
+    public void LoadScene(string scene)
+    {
+        SceneManager.LoadScene(scene);
+    }
     public void LoadNewScene()
     {
         StartCoroutine(LoadSceneAsync());
