@@ -136,17 +136,17 @@ MonoBehaviour:
   selectedGameObject: {fileID: 1797037665085933923}
   actionButtonImagesList:
   - iconActionButton: 0
-    icon: {fileID: 21300000, guid: 704f493a6140b984d8692919cb5fa94e, type: 3}
+    icon: {fileID: 21300000, guid: e4f5f12a5ef882e4296805c73c1860a5, type: 3}
   - iconActionButton: 1
-    icon: {fileID: 21300000, guid: adeed4f3e6c56ad4cafdba81331217da, type: 3}
+    icon: {fileID: 21300000, guid: d1b09b028ebbbe9439f3d831826f5602, type: 3}
   - iconActionButton: 2
-    icon: {fileID: 21300000, guid: f7c4e7470f3585d40893bbfcd4d282f9, type: 3}
+    icon: {fileID: 21300000, guid: 5ba57b309b4da7a41ae9db7b8e373fff, type: 3}
   - iconActionButton: 3
-    icon: {fileID: 21300000, guid: 87c2e9460be67964a9d7f89b38862f5d, type: 3}
+    icon: {fileID: 21300000, guid: 23aa126d480e8cb449c878a59e6cc78f, type: 3}
   - iconActionButton: 4
-    icon: {fileID: 21300000, guid: 95ed83edab3f1b8468dc3b9798e588d0, type: 3}
+    icon: {fileID: 21300000, guid: 569e3a8dbc38d2448b064fc273de0e64, type: 3}
   - iconActionButton: 5
-    icon: {fileID: 21300000, guid: f3f3c8718dc7f1c4c88027e6529fc41e, type: 3}
+    icon: {fileID: 21300000, guid: 90165f9cfe6c08448ba5dccad5a01f3e, type: 3}
 --- !u!222 &7651224268827189521
 CanvasRenderer:
   m_ObjectHideFlags: 0
