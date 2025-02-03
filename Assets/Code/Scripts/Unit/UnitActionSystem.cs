@@ -68,21 +68,24 @@ public class UnitActionSystem : MonoBehaviour
                     OnActionStarted?.Invoke(this, EventArgs.Empty);
                 }
             }
-            else if(Physics.Raycast(ray, out RaycastHit hit, float.MaxValue, enemyLayerMask))
+            else if (Physics.Raycast(ray, out RaycastHit hit, float.MaxValue, enemyLayerMask))
             {
                 if (hit.transform.TryGetComponent(out Unit unit))
                 {
-                    
-                    if (_selectedAction.IsValidActionGridPosition(unit.GetGridPosition()))
+                    if (unit.IsEnemy())
                     {
-                        if (selectedUnit.TrySpendActionPointsToTakeAction(_selectedAction))
+
+                        if (_selectedAction.IsValidActionGridPosition(unit.GetGridPosition()))
                         {
-                            SetBusy();
-                            _selectedAction.TakeAction(unit.GetGridPosition(), ClearBusy);
-                            OnActionStarted?.Invoke(this, EventArgs.Empty);
+                            if (selectedUnit.TrySpendActionPointsToTakeAction(_selectedAction))
+                            {
+                                SetBusy();
+                                _selectedAction.TakeAction(unit.GetGridPosition(), ClearBusy);
+                                OnActionStarted?.Invoke(this, EventArgs.Empty);
+                            }
                         }
                     }
-                    
+
                 }
             }
         }
