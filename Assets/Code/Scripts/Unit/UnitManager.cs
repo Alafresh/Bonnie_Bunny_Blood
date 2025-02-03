@@ -31,11 +31,6 @@ public class UnitManager : MonoBehaviour
         Unit.OnAnyUnitDead += Unit_OnAnyUnitDead;
     }
     
-    private void OnDestroy()
-    {
-        Unit.RemoveAllEventListeners();
-        if (Instance == this) Instance = null;
-    }
     private void Unit_OnAnyUnitSpawned(object sender, EventArgs e)
     {
         Unit unit = sender as Unit;

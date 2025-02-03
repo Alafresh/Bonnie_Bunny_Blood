@@ -24,11 +24,6 @@ public class Pathfinding : MonoBehaviour
     private List<GridSystem<PathNode>> gridSystemList;
     private List<PathfindingLink> pathfindingLinksList;
 
-    private void OnDestroy()
-    {
-        if (Instance == this) Instance = null;
-    }
-
     private void Awake()
     {
         if (Instance != null)

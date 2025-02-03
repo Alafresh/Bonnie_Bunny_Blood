@@ -30,11 +30,6 @@ public class ShootAction : BaseAction
         public Unit shootingUnit;
     }
 
-    public static void RemoveEvents()
-    {
-        OnAnyShoot = null;
-    }
-
     private void Start()
     {
         if (unit.IsEnemy())

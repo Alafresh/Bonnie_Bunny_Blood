@@ -9,11 +9,6 @@ public class TurnSystem : MonoBehaviour
 
     public event EventHandler OnTurnChanged;
 
-    private void OnDestroy()
-    {
-        if (Instance == this) Instance = null;
-    }
-
     private void Awake()
     {
         if (Instance != null)

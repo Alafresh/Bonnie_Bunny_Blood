@@ -6,8 +6,6 @@ public class SceneLoader : MonoBehaviour
 {
     public void LoadNewScene(string sceneName)
     {
-        BaseAction.ClearEvents();
-        Unit.RemoveAllEventListeners();
         StartCoroutine(LoadSceneAsync(sceneName));
     }
 

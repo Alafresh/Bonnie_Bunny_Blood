@@ -17,10 +17,6 @@ public class UnitActionSystem : MonoBehaviour
     [SerializeField] private LayerMask unitLayerMask;
     [SerializeField] private LayerMask enemyLayerMask;
 
-    private void OnDestroy()
-    {
-        if (Instance == this) Instance = null;
-    }
 
     private void Awake()
     {

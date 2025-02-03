@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class InteractSphere : MonoBehaviour, IInteractable
 {
@@ -10,6 +11,9 @@ public class InteractSphere : MonoBehaviour, IInteractable
     [SerializeField] private MeshRenderer meshRenderer;
     [SerializeField] private List<GameObject> waves;
     [SerializeField] private GameObject cameraWave;
+    [SerializeField] private Slider slider;
+    [SerializeField] private GameObject phase;
+    [SerializeField] private float value;
 
     public bool lastContainer;
     private Action _onInteractComplete;
@@ -48,6 +52,8 @@ public class InteractSphere : MonoBehaviour, IInteractable
 
     private void SetColorRed()
     {
+        slider.value = value;
+        phase.SetActive(true);
         _isGreen = false;
         meshRenderer.material = redMaterial;
         if (lastContainer)
@@ -70,6 +76,7 @@ public class InteractSphere : MonoBehaviour, IInteractable
         if (_isGreen)
         {
             SetColorRed();
+            
         }
         else
         {

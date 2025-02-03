@@ -26,12 +26,6 @@ public class LevelGrid : MonoBehaviour
 
     private List<GridSystem<GridObject>> gridSystemList;
 
-    private void OnDestroy()
-    {
-        if (Instance == this) Instance = null;
-        Debug.Log("LevelGrid destroyed");
-    }
-
     private void Awake()
     {
         if (Instance != null)

@@ -16,10 +16,6 @@ public class UnitWorldUI : MonoBehaviour
         UpdateActionPointsText();
         UpdateHealthBarImage();
     }
-    private void OnDestroy()
-    {
-        Unit.RemoveAllEventListeners();
-    }
 
     private void UpdateActionPointsText()
     {

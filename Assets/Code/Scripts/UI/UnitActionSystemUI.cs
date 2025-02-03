@@ -29,11 +29,6 @@ public class UnitActionSystemUI : MonoBehaviour
         UpdateSelectedVisual();
     }
 
-    private void OnDisable()
-    {
-        Unit.RemoveAllEventListeners();
-    }
-
     private void CreateUnitActionButtons()
     {
         foreach (Transform actionButton in actionButtonContainerTransform)

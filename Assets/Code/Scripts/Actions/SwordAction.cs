@@ -20,11 +20,6 @@ public class SwordAction : BaseAction
     private Unit _targetUnit;
     private int _maxSwordDistance = 1;
 
-    public static void RemoveEvents()
-    {
-        OnAnySwordHit = null;
-    }
-
     private void Update()
     {
         if (!isActive)

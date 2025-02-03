@@ -8,11 +8,6 @@ public class PathfindingUpdater : MonoBehaviour
         DesctructibleCrate.OnAnyDestroyed += DesctructibleCrate_OnAnyDestroyed;
     }
 
-    private void OnDestroy()
-    {
-        DesctructibleCrate.RemoveAllEventListeners();
-    }
-
     private void DesctructibleCrate_OnAnyDestroyed(object sender, EventArgs e)
     {
         DesctructibleCrate destructibleCrate = sender as DesctructibleCrate;
