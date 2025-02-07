@@ -50,6 +50,7 @@ public class UnitAnimator : MonoBehaviour
     }
     private void SwordAction_OnSwordActionStarted(object sender, EventArgs e)
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.swordClip);
         animator.SetTrigger("SwordSlash");
         EquidSword();
         Debug.Log("Sword Slash");
@@ -75,6 +76,7 @@ public class UnitAnimator : MonoBehaviour
 
     private void ShootAction_OnShoot(object sender, ShootAction.OnShotEventArgs e)
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.shootClip);
         animator.SetTrigger("Shoot");
         Debug.Log("Shooting anim");
         Transform bulletProjectileTransform =

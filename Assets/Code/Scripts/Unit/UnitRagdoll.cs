@@ -6,6 +6,7 @@ public class UnitRagdoll : MonoBehaviour
 
     public void SetUp(Transform originalRootBone)
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.killClip);
         MatchAllChildTransforms(originalRootBone, ragdollRootBone);
         Vector3 randomDir = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f));
         ApplyExplosionToRagdoll(ragdollRootBone, 300f, transform.position + randomDir, 10f);

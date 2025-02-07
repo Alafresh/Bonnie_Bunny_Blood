@@ -21,6 +21,7 @@ public class InteractAction : BaseAction
 
     public override void TakeAction(GridPosition gridPosition, Action onActionComplete)
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.interactContainerClip);
         IInteractable interactable = LevelGrid.Instance.GetInteractableAtGridPosition(gridPosition);
         interactable.Interact(OnInteractComplete);
         Debug.Log("InteractAction");

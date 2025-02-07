@@ -50,7 +50,7 @@ public class GrenadeProjectile : MonoBehaviour
             OnAnyGrenadeExplode?.Invoke(this, EventArgs.Empty);
             
             Instantiate(grenadeExplosionVfxPrefab, _targetPosition + Vector3.up * 1f, Quaternion.identity);
-            
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.explosionClip);
             Destroy(gameObject);
             _onGrenadeBehaviourComplete();
         }

@@ -54,6 +54,7 @@ public class LevelGrid : MonoBehaviour
     private void Update()
     {
         if (!_gameoverFlag) return;
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.gameOverClip);
         gameover.SetActive(true);
         countDown -= Time.deltaTime;
         if (countDown <= 0)

@@ -33,6 +33,7 @@ public class HealthSystem : MonoBehaviour
 
     private void Die()
     {
+        
         OnDead?.Invoke(this, EventArgs.Empty);
     }
 

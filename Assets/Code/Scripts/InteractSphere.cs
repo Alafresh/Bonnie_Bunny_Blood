@@ -72,7 +72,7 @@ public class InteractSphere : MonoBehaviour, IInteractable
     {
         _onInteractComplete = onInteractionComplete;
         _isActive = true;
-        _timer = 2f;
+        _timer = 4f;
         if (_isGreen)
         {
             SetColorRed();

@@ -24,7 +24,7 @@ public class GrenadeAction : BaseAction
         Transform grenadeProjectileTransform = Instantiate(grenadeProjectilePrefb, unit.GetWorldPosition(), Quaternion.identity);
         GrenadeProjectile grenadeProjectile = grenadeProjectileTransform.GetComponent<GrenadeProjectile>();
         grenadeProjectile.SetUp(gridPosition, OnGrenadeBehaviourComplete);
-
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.throwGranadeClip);
         ActionStart(onActionComplete);
     }
 
