@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.EventSystems;
 
 public class AudioManager : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] public AudioClip hoverBtnClip;
 
     private int currentClipIndex = 0;
+    public bool isMuted = false;
 
     private void Awake()
     {
@@ -48,6 +50,13 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void MuteAll()
+    {
+        musicAudioSource.mute = !musicAudioSource.mute;
+        sfxAudioSource.mute = !sfxAudioSource.mute;
+        introSource.mute = !introSource.mute;
+        isMuted = !isMuted;
+    }
     public void PlaySFX(AudioClip clip)
     {
         sfxAudioSource.clip = clip;

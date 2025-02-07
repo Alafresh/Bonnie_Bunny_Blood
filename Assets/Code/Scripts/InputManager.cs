@@ -21,6 +21,11 @@ public class InputManager : MonoBehaviour
         Debug.Log("InputManager created");
     }
 
+    private void OnDestroy()
+    {
+        _playerInputActions.Player.Disable();
+    }
+
     public Vector2 GetMouseScreenPosition()
     {
 #if USE_NEW_INPUT_SYSTEM
