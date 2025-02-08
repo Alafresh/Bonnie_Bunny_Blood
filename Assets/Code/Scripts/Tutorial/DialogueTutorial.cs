@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class DialogueTutorial : MonoBehaviour
 {
+    [SerializeField] GameObject dialoguePanel;
     public TypewriterByCharacter textAnimatorPlayer;
 
     [TextArea(3, 50), SerializeField]
@@ -30,6 +31,10 @@ public class DialogueTutorial : MonoBehaviour
         if (index < textToShow.Length)
         {
             textAnimatorPlayer.ShowText(textToShow[index]);
+        }
+        else
+        {
+            dialoguePanel.SetActive(false);
         }
     }
 }

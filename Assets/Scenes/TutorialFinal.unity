@@ -5851,6 +5851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 497e906e13e6cc94faef09dc2561d9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialoguePanel: {fileID: 326348032}
   textAnimatorPlayer: {fileID: 1496374268}
   textToShow:
   - 'Unit activated<bounce> ...... </> Connection with the operator established.
@@ -5861,11 +5862,30 @@ MonoBehaviour:
   - Well done! Now, to get a better perspective, you can rotate the camera using
     the <shake><rainb>Q</> and <shake><rainb>E</> keys. Turn and look around.
   - 'Perfect. Sometimes, you will need a closer view or a wider perspective. To zoom
-    in and out, use the mouse wheel: scroll up to zoom in and scroll down to zoom
-    out. Give it a try.'
+    in and out, use the <wave><rainb>mouse wheel</>: scroll up to zoom in and scroll
+    down to zoom out. Give it a try.'
   - Excellent! Controlling the camera will help you analyze the terrain and plan
     your next move. When you are ready, let me know, and we will proceed to the next
     step.
+  - 'Your mission is clear: control the containers and face the humans. But to succeed,
+    you must use your actions wisely'
+  - This is a turn-based game. Each turn, you can choose a strategic action to advance.
+    Here are your options
+  - 'Move: Use the  <sprite name="avance">  button to reposition combat units.'
+  - 'Spin: Use the  <sprite name="giro"> button to turn your rabbit in the right
+    direction.'
+  - 'Melee attack: Use the  <sprite name="espadita"> button to attack enemies up
+    close.'
+  - 'Ranged attack: Use the gun  <sprite name="pistola"> to shoot from a distance.'
+  - 'Throw a projectile: Use the grenade  <sprite name="bombitas"> to hit multiple
+    targets.'
+  - 'Activate containers: Use the hand  <sprite name="mano"> to unlock strategic
+    advantages.'
+  - When you have no more Action Points or when you're ready to end your turn, press
+    the End Turn button <sprite name="turno">. This will allow your enemies to make
+    their move before your next turn begins.
+  - "Good choice! Remember, humans won\u2019t give up easily. Use the environment
+    to your advantage and dominate the battlefield. Good luck, General"
 --- !u!4 &512047268
 Transform:
   m_ObjectHideFlags: 0
@@ -9693,6 +9713,7 @@ GameObject:
   - component: {fileID: 687577978}
   - component: {fileID: 687577977}
   - component: {fileID: 687577976}
+  - component: {fileID: 687577979}
   m_Layer: 5
   m_Name: SkipButton
   m_TagString: Untagged
@@ -9837,6 +9858,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 687577974}
   m_CullTransparentMesh: 1
+--- !u!114 &687577979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687577974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d77e3dca53ea4bb49a5a14f87843455e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &701732624
 GameObject:
   m_ObjectHideFlags: 0
@@ -15801,7 +15834,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: c768740a689ea464f8a6d7826745fd09, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -48908,7 +48941,7 @@ PrefabInstance:
       objectReference: {fileID: 2113888706}
     - target: {fileID: 9053923727639622956, guid: 835a45bcfa359ae458d360ebd3008773, type: 3}
       propertyPath: lastContainer
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9053923727639622956, guid: 835a45bcfa359ae458d360ebd3008773, type: 3}
       propertyPath: waves.Array.size
