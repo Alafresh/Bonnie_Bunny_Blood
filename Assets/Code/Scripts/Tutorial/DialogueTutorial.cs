@@ -1,8 +1,12 @@
 using Febucci.UI;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class DialogueTutorial : MonoBehaviour
 {
+    [SerializeField] private GameObject videoRender;
+    [SerializeField] VideoPlayer videoPlayer;
+    [SerializeField] VideoClip[] videoClips;
     [SerializeField] GameObject dialoguePanel;
     public TypewriterByCharacter textAnimatorPlayer;
 
@@ -28,6 +32,38 @@ public class DialogueTutorial : MonoBehaviour
     public void NextText()
     {
         index++;
+        switch (index)
+        {
+            case 7:
+                
+                videoPlayer.clip = videoClips[0];
+                videoPlayer.Play();
+                break;
+            case 8:
+                videoPlayer.clip = videoClips[1];
+                videoPlayer.Play();
+                break;
+            case 9:
+                videoPlayer.clip = videoClips[2];
+                videoPlayer.Play();
+                break;
+            case 10:
+                videoPlayer.clip = videoClips[3];
+                videoPlayer.Play();
+                break;
+            case 11:
+                videoPlayer.clip = videoClips[4];
+                videoPlayer.Play();
+                break;
+            case 12:
+                videoPlayer.clip = videoClips[5];
+                videoPlayer.Play();
+                break;
+            case 13:
+                videoRender.SetActive(false);
+                videoPlayer.Stop();
+                break;
+        }
         if (index < textToShow.Length)
         {
             textAnimatorPlayer.ShowText(textToShow[index]);
