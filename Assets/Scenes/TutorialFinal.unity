@@ -5991,6 +5991,13 @@ MonoBehaviour:
   - {fileID: 32900000, guid: 30ed57ed711c2f34a9d3b39f8e6c9747, type: 3}
   dialoguePanel: {fileID: 326348032}
   textAnimatorPlayer: {fileID: 1496374268}
+  videoNames:
+  - Moverse.mp4
+  - Girar.mp4
+  - Espada.mp4
+  - Disparar.mp4
+  - Granada.mp4
+  - Manito.mp4
   textToShow:
   - 'Unit activated<bounce> ...... </> Connection with the operator established.
     Hello, little explorer, I am your remote artificial intelligence. Before starting
@@ -15222,7 +15229,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1411908017
 RectTransform:
   m_ObjectHideFlags: 0
